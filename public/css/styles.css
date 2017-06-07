@@ -159,11 +159,12 @@ body {
     left:0;
     transform:translate(0%,0%);
   }
+  .logo-img {
+    width:100px;
+    height:100px;
+  }
   .box{
     width:100%;
-  }
-  .box-texts{
-    margin-top:auto;
   }
   #contact-btn{
     position:fixed;
