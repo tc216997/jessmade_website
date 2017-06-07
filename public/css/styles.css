@@ -53,28 +53,27 @@ body {
 }
 
 #pastry-box {
-  background-image: url('../img/lychee_rose1.jpg');
+  background-image: url('../img/lychee_rose-op.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
 
 #ig-box{
-  background-image: url('../img/strawberry_matcha_macarons1.jpg');
+  background-image: url('../img/strawberry_matcha_macarons-op.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
 
 #fb-box{
-  background-image: url('../img/dripcake1.jpg');
+  background-image: url('../img/dripcake-op.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
 
 #about-box{
-  background-image:url('../img/watercolor_cake.jpg');
+  background-image:url('../img/watercolor_cake-op.jpg');
   background-size: cover;
   background-repeat:no-repeat;
-  opacity:.8;
 }
 
 .box:nth-child(1){
@@ -90,7 +89,7 @@ body {
 }
 
 .box:hover{
-  opacity: .6!important;
+  opacity: .3!important;
 }
 
 .extra-large {
@@ -108,7 +107,7 @@ body {
   justify-content: center;
   align-items: center;
   color:white;
-  text-shadow: 3px 1px 10px rgba(28, 28, 28, 1);
+  text-shadow: 3px 1px 10px rgba(0, 0, 0, 1);
 }
 
 .absolute-center{
@@ -142,6 +141,7 @@ body {
   text-align:center;
   text-decoration:none;
   padding-top:5px;
+  padding-bottom:5px;
 }
 
 #contact-btn:hover{
@@ -149,7 +149,6 @@ body {
   color:#fff;
 }
 .contact-text{
-  margin-top:5px;
   font-size:34px;
 }
 
