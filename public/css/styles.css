@@ -53,7 +53,7 @@ body {
 }
 
 #pastry-box {
-  background-image: url('../img/chocolate_shaving_cake.jpg');
+  background-image: url('../img/lychee_rose.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
@@ -151,4 +151,21 @@ body {
 }
 .contact-text{
   font-size:34px;
+}
+
+@media (max-width: 480px) {
+  #logo-box {
+    top:0;
+    left:0;
+    transform:translate(0%,0%);
+  }
+  .box{
+    width:100%;
+  }
+  .box-texts{
+    margin-top:auto;
+  }
+  #contact-btn{
+    position:fixed;
+  }
 }
