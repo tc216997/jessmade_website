@@ -35,7 +35,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #000;
+  background: #fff;
   font-family: 'Dancing Script', 'Open Sans', sans-serif;
 }
 
@@ -50,28 +50,29 @@ body {
   width: 50%;
   height: 50%;
   display:flex;
+  opacity:.6;
 }
 
 #pastry-box {
-  background-image: url('../img/lychee_rose-op.jpg');
+  background-image: url('../img/lychee_rose.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
 
 #ig-box{
-  background-image: url('../img/strawberry_matcha_macarons-op.jpg');
+  background-image: url('../img/strawberry_matcha_macarons1.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
 
 #fb-box{
-  background-image: url('../img/dripcake-op.jpg');
+  background-image: url('../img/dripcake1.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
 
 #about-box{
-  background-image:url('../img/watercolor_cake-op.jpg');
+  background-image:url('../img/watercolor_cake.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
@@ -89,7 +90,7 @@ body {
 }
 
 .box:hover{
-  opacity: .3!important;
+  opacity: 1!important;
 }
 
 .extra-large {
