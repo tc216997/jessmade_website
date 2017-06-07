@@ -35,8 +35,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #fff;
-  font-family: 'Cookie', 'Open Sans', sans-serif;
+  background: #000;
+  font-family: 'Dancing Script', 'Open Sans', sans-serif;
 }
 
 .container {
@@ -53,7 +53,7 @@ body {
 }
 
 #pastry-box {
-  background-image: url('../img/lychee_rose.jpg');
+  background-image: url('../img/lychee_rose1.jpg');
   background-size: cover;
   background-repeat:no-repeat;
 }
@@ -74,6 +74,7 @@ body {
   background-image:url('../img/watercolor_cake.jpg');
   background-size: cover;
   background-repeat:no-repeat;
+  opacity:.8;
 }
 
 .box:nth-child(1){
@@ -82,7 +83,6 @@ body {
 
 .box:nth-child(2), .box:nth-child(3) {
   background-color: #d8f2b8;
-  opacity: .8;
 }
 
 .box:nth-child(4) {
@@ -90,7 +90,7 @@ body {
 }
 
 .box:hover{
-  opacity: .6;
+  opacity: .6!important;
 }
 
 .extra-large {
@@ -98,7 +98,7 @@ body {
 }
 
 .trail-letters{
-  font-size:40px;
+  font-size:50px;
 }
 
 .box-texts {
