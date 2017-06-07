@@ -107,7 +107,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color:black;
+  color:white;
+  text-shadow: 3px 1px 10px rgba(28, 28, 28, 1);
 }
 
 .absolute-center{
@@ -130,9 +131,6 @@ body {
   width:150px;
   height:150px;
 }
-.block{
-  display:block;
-}
 
 #contact-btn{
   width:150px;
@@ -143,6 +141,7 @@ body {
   color:#82448f;
   text-align:center;
   text-decoration:none;
+  padding-top:5px;
 }
 
 #contact-btn:hover{
@@ -150,6 +149,7 @@ body {
   color:#fff;
 }
 .contact-text{
+  margin-top:5px;
   font-size:34px;
 }
 
