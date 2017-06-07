@@ -93,6 +93,10 @@ body {
   opacity: 1!important;
 }
 
+.box:active {
+  opacity: 1!important;
+}
+
 .extra-large {
   font-size:120px;
 }
@@ -109,6 +113,7 @@ body {
   align-items: center;
   color:white;
   text-shadow: 3px 1px 10px rgba(0, 0, 0, 1);
+  z-index: 100;
 }
 
 .absolute-center{
@@ -140,9 +145,10 @@ body {
   background-color:#fff;
   color:#82448f;
   text-align:center;
-  text-decoration:none;
   padding-top:5px;
   padding-bottom:5px;
+  cursor: pointer;
+  z-index: 100;
 }
 
 #contact-btn:hover{
@@ -151,6 +157,24 @@ body {
 }
 .contact-text{
   font-size:34px;
+}
+
+.text-medium {
+  font-size: 25px;
+}
+
+.contact-div{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:95vw;
+  height:62vh;
+  display:none;
+  background: #e3cce8;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 5555;
 }
 
 @media (max-width: 480px) {
@@ -170,3 +194,75 @@ body {
     position:fixed;
   }
 }
+
+@media (max-width:1024px) {
+  .contact-div{
+    position:fixed;
+    width:95vw;
+  }
+}
+
+/* form style */
+
+.feedback-input {
+	color:#3c3c3c;
+	font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 20px;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 10px 10px 10px 54px;
+	margin-bottom: 10px;
+	width:85%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+  
+}
+#name-p {
+  margin-top:10px;
+}
+.input-p{
+  text-align:center;
+}
+.feedback-input:focus{
+	background: #fff;
+	border: 3px solid #3498db;
+	color: #3498db;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  line-height: 150%;
+  resize: none;
+}
+#submit-button{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #96c65b;
+	color:white;
+	font-size:20px;
+	padding-top:15px;
+	padding-bottom:15px;
+  font-weight:700;
+}
+.submit {
+  bottom:0;
+  position:absolute;
+  width:100%;
+}
+/* ./ form style */

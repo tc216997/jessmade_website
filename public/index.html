@@ -55,10 +55,37 @@
   <div class="absolute-center" id="logo-box">
     <img class="logo-img" src="../img/invert_logo_small.jpg"/>
   </div>
+  <!--
  <a href="#email-modal"class="absolute-bottom" id="contact-btn">
     <span class="contact-text">Contact</span>
  </a>
-
+ -->
+ <div class="absolute-bottom" id="contact-btn">
+    <div class="contact-text">Contact</div>
+ </div>
+  <div class="contact-div" class="show">
+    <form class="form" id="form1">
+      <p class="input-p" id="name-p">
+        <input name="name" type="text" class="feedback-input" placeholder="Name" id="name" />
+      </p>
+      <p class="input-p" id="number-p">
+        <input name="number" type="text" class="feedback-input" id="number" placeholder="Phone" />
+      </p>
+      <p class="input-p" id="email-p">
+        <input name="email" type="text" class="feedback-input" id="email" placeholder="Email address" />
+      </p>
+      <p class="input-p" id="subject-p">
+        <input name="subject" type="text" class="feedback-input" id="subject" placeholder="Subject" />
+      </p>      
+      <p class="input-p" id="message-p">
+        <textarea name="text" class="feedback-input" id="message" placeholder="Message"></textarea>
+      </p>
+       
+      <div class="submit">
+        <input type="submit" value="SEND" id="submit-button"/>
+      </div>
+    </form>
+  </div>
     
     <script async type="text/javascript">
       function getjQuery(url,success){
