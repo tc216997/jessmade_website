@@ -5,7 +5,7 @@ $(document).ready(function() {
           $('#contact-btn').animate({bottom: '0px'}, 'slow');
           $('.contact-div').removeClass('hide').addClass('show');
       } else {
-          $('#contact-btn').animate({bottom: '62vh'}, 'slow');
+          $('#contact-btn').animate({bottom: '70vh'}, 'slow');
           $('.contact-div').removeClass('show').addClass('hide');
           $('.contact-div').css('display', 'block');
       }
