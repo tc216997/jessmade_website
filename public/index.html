@@ -16,7 +16,7 @@
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 </head>
 
@@ -77,10 +77,26 @@
         <textarea name="text" class="feedback-input" id="form-message" placeholder="&#xf040; &nbsp; What's on your mind?"></textarea>
       </p>
        
-      <div class="submit">
-        <input type="submit" value="SEND" id="submit-button"/>
+      <div class="submit-div">
+        <input type="submit" value="Send" id="submit-button"/>
       </div>
+
     </form>
+  </div>
+
+    <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <i class="fa fa-envelope faa-passing animated sending-mail-icon"></i>
+      <p class="modal-text" id="loading-message">Sending Email...</p>
+      <i class="fa fa-thumbs-up faa-pulse animated"></i>
+      <p class="modal-text " id="success-message">Email sent !</p>
+      <i class="fa fa-exclamation-triangle faa-flash animated"></i>
+      <p class="modal-text" id="error-message">Error !</p>
+    </div>
+
   </div>
     
     <script async type="text/javascript">

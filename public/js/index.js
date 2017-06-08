@@ -9,7 +9,7 @@ $(document).ready(function() {
             return true;
           });
       } else {
-          $('#contact-btn').animate({bottom: '70vh'}, 'slow');
+          $('#contact-btn').animate({bottom: '72vh'}, 'slow');
           $('.contact-div').removeClass('show').addClass('hide');
           $('.contact-div').css('display', 'block');
           $('a').css('cursor', 'default');
@@ -19,6 +19,16 @@ $(document).ready(function() {
           });
       }
   });
-  //$('#contact-btn').click();
+  $('#contact-btn').click();
+});
+
+$(document).ready(function() {
+  $('#submit-button').click(function(e){
+    //show modal, prevent redirect
+    e.preventDefault();
+    $('.modal').css('display', 'block');
+    // prep ajax object and send to server
+    console.log('prep ajax object to send to server');
+  });
 });
 
