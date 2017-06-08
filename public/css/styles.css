@@ -224,15 +224,9 @@ a.disabled {
 
 .feedback-input:focus{
 	background: #fff;
-	border: 3px solid #3498db;
-	color: #3498db;
+	border: 3px solid #96c658;
 	outline: none;
   padding: 10px 10px 10px 20px;
-}
-
-.focused{
-	color:#30aed6;
-	border:#30aed6 solid 3px;
 }
 
 textarea {
