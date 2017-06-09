@@ -253,6 +253,7 @@ textarea {
 	padding-top:10px;
 	padding-bottom:10px;
   font-weight:600;
+  outline: none;
 }
 #submit-button:hover{
 	background-color: #96c65b;
@@ -264,7 +265,7 @@ textarea {
 
 /* page overlay/modal effect */
   .modal {
-      display: block; /* Hidden by default */
+      display: none; /* Hidden by default */
       position: fixed; /* Stay in place */
       z-index: 9999; /* Sit on top */
       padding-top: 100px; /* Location of the box */
@@ -299,22 +300,28 @@ textarea {
   .display-none{
     display:none;
   }
-  .sending-mail-icon {
+  #sending-icon {
+    display:none;
     color:#00ffff;
   }
-  #loading-message{
+  #sending-message{
+    display:none;
     color:#00ffff;
   }
-  .fa-thumbs-up {
+  #success-icon {
+    display:none;
     color:#19ff19;    
   }
   #success-message{
+    display:none;
     color:#19ff19;
   }
-  .fa-exclamation-triangle{
+  #error-icon{
+    display:none;
     color:#ff4c4c;
   }
   #error-message{
+    display:none;
     color:#ff4c4c;
   }
 /* ./page overlay/modal effect*/

@@ -62,19 +62,19 @@
   <div class="contact-div" class="show">
     <form class="form" id="form1">
       <p class="input-p" id="name-p">
-        <input name="name" type="text" class="feedback-input" id="form-name" placeholder="&#xf007; &nbsp; Name"/>
+        <input name="name" type="text" class="feedback-input" id="form-name" placeholder="&#xf007; &nbsp; Name" required/>
       </p>
       <p class="input-p" id="number-p">
-        <input name="number" type="text" class="feedback-input" id="form-number" placeholder="&#xf095; &nbsp; Phone number" />
+        <input name="number" type="text" class="feedback-input" id="form-number" placeholder="&#xf095; &nbsp; Phone number" required/>
       </p>
       <p class="input-p" id="email-p">
-        <input name="email" type="text" class="feedback-input" id="form-email" placeholder="&#xf0e0; &nbsp; Email address" />
+        <input name="email" type="text" class="feedback-input" id="form-email" placeholder="&#xf0e0; &nbsp; Email address" required/>
       </p>
       <p class="input-p" id="subject-p">
-        <input name="subject" type="text" class="feedback-input" id="form-subject" placeholder="&#xf02c; &nbsp; Subject" />
+        <input name="subject" type="text" class="feedback-input" id="form-subject" placeholder="&#xf02c; &nbsp; Subject" required/>
       </p>      
       <p class="input-p" id="message-p">
-        <textarea name="text" class="feedback-input" id="form-message" placeholder="&#xf040; &nbsp; What's on your mind?"></textarea>
+        <textarea name="message" class="feedback-input" id="form-message" placeholder="&#xf040; &nbsp; What's on your mind?" required></textarea>
       </p>
        
       <div class="submit-div">
@@ -89,12 +89,12 @@
 
     <!-- Modal content -->
     <div class="modal-content">
-      <i class="fa fa-envelope faa-passing animated sending-mail-icon"></i>
-      <p class="modal-text" id="loading-message">Sending email...</p>
-      <i class="fa fa-thumbs-up faa-pulse animated"></i>
-      <p class="modal-text " id="success-message">Email sent !</p>
-      <i class="fa fa-exclamation-triangle faa-flash animated"></i>
-      <p class="modal-text" id="error-message">Error !</p>
+      <i class="fa fa-envelope faa-passing animated sending-mail-icon" id="sending-icon"></i>
+      <p class="modal-text" id="sending-message">Sending email...</p>
+      <i class="fa fa-thumbs-up faa-pulse animated" id="success-icon"></i>
+      <p class="modal-text" id="success-message">Email sent !</p>
+      <i class="fa fa-exclamation-triangle faa-flash animated" id="error-icon"></i>
+      <p class="modal-text" id="error-message">Error! <br>Please try again</p>
     </div>
 
   </div>
