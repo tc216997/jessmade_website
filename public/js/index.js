@@ -14,27 +14,28 @@ $(document).ready(function() {
     // show loading icon
     showSendingMsg();
     // check if request is allowed
-
-    // if allowed change the form data into json object
-    let formData = serializeJson($(this).serializeArray());
-    $.ajax({
-      url:'/send-email',
-      type:'POST',
-      data: formData,
-      datatype: 'json',
-      error: function(response) {
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.responseJSON.status);
-        console.log(response.responseJSON.error);
-        errorHandler();
-      },
-      success: function(response) {
-        console.log(response);
-        console.log(response.status);
-        successHandler();
-      }
-    });
+    if ($('#antispam-form').val() === ''){
+      let formData = serializeJson($(this).serializeArray());
+      $.ajax({
+        url:'/send-email',
+        type:'POST',
+        data: formData,
+        datatype: 'json',
+        error: function(response) {
+          console.log(response.status);
+          console.log(response.statusText);
+          console.log(response.responseJSON.status);
+          console.log(response.responseJSON.error);
+          errorHandler();
+        },
+        success: function(response) {
+          console.log(response);
+          console.log(response.status);
+          successHandler();
+        }
+      });
+    }
+    
   });
 });
 
