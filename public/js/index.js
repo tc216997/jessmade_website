@@ -3,7 +3,6 @@ $(document).ready(function() {
       $( ".contact-div" ).slideToggle( "slow");
       contactToggle();
   });
-  //$('#contact-btn').click();
 });
 
 $(document).ready(function() {
@@ -22,15 +21,9 @@ $(document).ready(function() {
         data: formData,
         datatype: 'json',
         error: function(response) {
-          console.log(response.status);
-          console.log(response.statusText);
-          console.log(response.responseJSON.status);
-          console.log(response.responseJSON.error);
-          errorHandler();
+          errorHandler(response);
         },
         success: function(response) {
-          console.log(response);
-          console.log(response.status);
           successHandler();
         }
       });
@@ -80,18 +73,19 @@ function successHandler() {
     $( ".contact-div" ).slideToggle( "slow");
     contactToggle();
     clearForm();
-  }, 3000);  
+  }, 4000);  
 }
 
-function errorHandler() {
+function errorHandler(res) {
   hideSendingMsg();
   $('#error-icon').css('display', 'block');
   $('#error-message').css('display', 'block');
+  $('#error-message').html(res.responseJSON.status);
   window.setTimeout(() => {
     $('.modal').css('display', 'none');
     $('#error-icon').css('display', 'none');
     $('#error-message').css('display', 'none');
-  }, 3000);
+  }, 4000);
 }
 
 function hideErrorMsg() {
@@ -107,8 +101,8 @@ function serializeJson(array) {
   return json;
 }
 
-function formTest(){
-  $('#form-name').val('Terry Chong');
+function autofill(){
+  $('#form-name').val('<script>console.log(attack)</script>Terry Chong');
   $('#form-number').val('123-456-7799');
   $('#form-email').val('tchong916@gmail.com');
   $('#form-subject').val('Test email');

@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aes256": "^1.0.2",
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
+    "express-rate-limit": "^2.8.0",
+    "express-sanitizer": "^1.0.2",
     "nodemailer": "^4.0.1",
-    "request": "^2.81.0"
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

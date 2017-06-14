@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="copyright" content="Jessica Chiu">
     <link href="data:;base64,iVBORw0KGgo=" rel="icon">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <meta name="dcterms.rightsHolder" content="Jessica Chiu">
+    <meta name="dcterms.dateCopyrighted" content="2017">
     <title>jessmade sweets</title>
     <!-- Font awesome icons-->
     <link href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" rel="stylesheet">
@@ -36,7 +39,7 @@
         </div>
       </div>
     </a>
-    <a href="https://www.facebook.com/jessmade" target="_blank" disabled>
+    <a href="https://www.facebook.com/jessmade" target="_blank">
       <div class="box" id="fb-box">
         <div class="box-texts">
           <span class="trail-letters">facebook</span>
@@ -51,21 +54,17 @@
       </div>
     </a>
   </div>
-<!--
-  <div class="absolute-center" id="logo-box">
-    <img class="logo-img" src="../img/logo_small.jpg"/>
-  </div>
--->
+
  <div class="absolute-bottom" id="contact-btn">
     <div class="contact-text">contact</div>
  </div>
-  <div class="contact-div" class="show">
+  <div class="contact-div show">
     <form class="form" id="form1">
       <p class="input-p" id="name-p">
         <input name="name" type="text" class="feedback-input" id="form-name" placeholder="&#xf007; &nbsp; Name" required/>
       </p>
       <p class="input-p" id="number-p">
-        <input name="number" type="text" class="feedback-input" id="form-number" placeholder="&#xf095; &nbsp; Phone number" required/>
+        <input name="number" type="text" class="feedback-input" id="form-number" placeholder="&#xf095; &nbsp; Phone number"/>
       </p>
       <p class="antispam">Leave this empty: 
         <input id="antispam-form" type="text" name="url" />
@@ -97,21 +96,21 @@
       <i class="fa fa-thumbs-up faa-pulse animated" id="success-icon"></i>
       <p class="modal-text" id="success-message">Email sent !</p>
       <i class="fa fa-exclamation-triangle faa-flash animated" id="error-icon"></i>
-      <p class="modal-text" id="error-message">Error! <br>Please try again</p>
+      <p class="modal-text" id="error-message"></p>
     </div>
 
   </div>
     
-    <script async type="text/javascript">
-      function getjQuery(url,success){
-        let script=document.createElement('script');
-        script.src=url;
-        let head=document.getElementsByTagName('head')[0],
-          done=false;
+    <script type="text/javascript">
+      function getjQuery(url,callback){
+        let script = document.createElement('script');
+        script.src = url;
+        let head = document.getElementsByTagName('head')[0],
+            done = false;
         script.onload=script.onreadystatechange = function(){
           if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
             done=true;
-            success();
+            callback();
             script.onload = script.onreadystatechange = null;
             head.removeChild(script);
           }
@@ -120,7 +119,7 @@
       }
       window.onload = function(){
         getjQuery('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js', function(){
-          let jsFiles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js','https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js', 'js/index.js'];
+          let jsFiles = ['js/index.js'];
           jsFiles.map(source => {
             let scriptTag = document.createElement('script');
             scriptTag.type = "text/javascript"
