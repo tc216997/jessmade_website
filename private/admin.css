@@ -1,0 +1,125 @@
+body {
+  background-color: black;
+}
+h1 {
+  color: white;
+}
+.feedback-input {
+	color:#3c3c3c;
+	font-family: 'FontAwesome', 'Dancing Script', Helvetica, Arial, sans-serif;
+  font-weight:600;
+	font-size: 18px;
+	border-radius: 20px;
+	line-height: 22px;
+	background-color: #fff;
+	padding: 10px 10px 10px 15px;
+	margin-bottom: 5px;
+	width:85%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid black;
+}
+
+#name-p {
+  margin-top:20px;
+}
+.input-p{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.feedback-input:focus{
+	background: #fff;
+	border: 3px solid #00ffff;
+	outline: none;
+  padding: 10px 10px 10px 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  line-height: 150%;
+  resize: none;
+}
+.submit-div{
+  text-align:center;
+}
+#submit-button{
+  text-align:center;
+	font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
+	width: 50%;
+	border: white solid 4px;
+  border-radius: 20px;
+	cursor:pointer;
+  background-color: white;
+	font-size:30px;
+	padding-top:10px;
+	padding-bottom:10px;
+  font-weight:600;
+  outline: none;
+}
+
+#submit-button:hover{
+	background-color: #96c65b;
+	color:white;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+.modal-content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background-color: none;
+    margin: auto;
+    width: 300px;
+    text-align:center;
+    font-size:30px;
+}
+
+.modal-text {
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  margin-top:0;
+  margin-bottom:10px;
+  font-weight:bold;
+  font-size:30px;
+}
+
+#sending-icon {
+  display:none;
+  color:#00ffff;
+}
+#sending-message{
+  display:none;
+  color:#00ffff;
+}
+#success-icon {
+  display:none;
+  color:#19ff19;    
+}
+#success-message{
+  display:none;
+  color:#19ff19;
+}
+#error-icon{
+  display:none;
+  color:#ff4c4c;
+}
+#error-message{
+  display:none;
+  color:#ff4c4c;
+}

@@ -6,12 +6,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <META NAME="robots" CONTENT="noindex, nofollow">
   <title>Admin page</title>
-  <!-- Custom CSS -->
+  <link href="admin.css" rel="stylesheet" type='text/css'>
+  <link href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" rel="stylesheet" type='text/css'>
+  <!--Font awesome animated icons-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.min.css" rel="stylesheet" type='text/css'>  
 </head>
 
 <body>
-  <h1>Admin page</h1>
-  <h1>Should allow photolink upload and description?</h1>
+  <h1>Photo submit</h1>
+  <form class="form" id="form1">
+    <p class="input-p" id="photo_name-p">
+      <input name="photo_name" type="text" class="feedback-input" id="form-image-name" placeholder="Image name/description" required/>
+    </p>
+    <p class="input-p" id="photo_link-p">
+      <input name="photo_link" type="text" class="feedback-input" id="form-image-link" placeholder="Image link" required/>
+    </p>
+    <div class="submit-div">
+      <input type="submit" value="Submit" id="submit-button"/>
+    </div>
+  </form>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <i class="fa fa-envelope faa-passing animated sending-mail-icon" id="sending-icon"></i>
+      <p class="modal-text" id="sending-message">Uploading info...</p>
+      <i class="fa fa-thumbs-up faa-pulse animated" id="success-icon"></i>
+      <p class="modal-text" id="success-message">Upload OK!</p>
+      <i class="fa fa-exclamation-triangle faa-flash animated" id="error-icon"></i>
+      <p class="modal-text" id="error-message"></p>
+    </div>
+  </div>
+
 </body>
 
 </html>

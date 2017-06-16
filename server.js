@@ -1,5 +1,6 @@
 require('dotenv').config();
-const express = require('express'),
+const https = require('https'),
+      express = require('express'),
       path = require('path'),
       nodemailer = require('nodemailer'),
       bodyParser = require('body-parser'),
@@ -8,7 +9,8 @@ const express = require('express'),
       RateLimit = require('express-rate-limit'),
       passport = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
-      aes256 = require('aes256');
+      aes256 = require('aes256'),
+      bcrypt = require('bcryptjs'),
       app = express(),
       emailLimiter = new RateLimit({
         windowMs: 5*60*1000,
@@ -57,17 +59,28 @@ app.post('/send-email', (req, res) => {
   sendMail(clientName, clientNumber, clientEmail, clientSubject, clientMessage, res);
 });
 
-app.post('/admin-login', (req, res) => {
+app.post('/private/admin-login', (req, res) => {
   let username = req.sanitize(req.body.username);
   let password = req.sanitize(req.body.password);
-  let auth = fakeAuth(username, password);
-  if (!auth) {
-    res.sendFile(getFile('login-failed'))
+  if (username === process.env.CLIENTUSER) {
+    bcrypt.compare(password, process.env.CLIENTPW, (err, auth) => {
+      if (auth) {
+        let privatePath = path.resolve(__dirname, 'private');
+        let privateFile = path.resolve(privatePath,  'admin-page.html');
+        res.sendFile(privateFile);            
+      } else {
+        res.sendFile(getFile('login-failed'));
+      }
+    })
   } else {
-    let privatePath = path.resolve(__dirname, 'private');
-    let privateFile = path.resolve(privatePath,  'admin-page.html');
-    res.sendFile(privateFile);
+    res.sendFile(getFile('login-failed'));
   }
+});
+
+app.post('/private/upload', (req, res) => {
+  console.log(req.sanitize(req.body.photo_name));
+  console.log(req.sanitize(req.body.photo_link));
+  res.status(200).json({status:'upload ok!', error:null});
 });
 
 app.listen(app.get('port'), () => {
@@ -98,12 +111,6 @@ function sendMail(name, number, email, subject, message, res) {
       res.status(200).json({status:'Email was sent!', error:null}); 
     }
   });
-}
-
-// fake auth function that i am testing
-function fakeAuth(user, pass) {
-  let admin = (user !== process.env.CLIENTUSER) ? false : (pass !== decryptHash(process.env.CLIENTPW))? false: true;
-  return admin 
 }
 
 function decryptHash(hash) {
