@@ -13,32 +13,57 @@
 </head>
 
 <body>
-  <h1>Photo submit</h1>
-  <form class="form" id="form1">
+
+  <h1 style="text-align:center;">Photo upload</h1>
+  <form class="form" id="photo-upload">
     <p class="input-p" id="photo_name-p">
-      <input name="photo_name" type="text" class="feedback-input" id="form-image-name" placeholder="Image name/description" required/>
+      <input name="image_name" type="text" class="feedback-input" id="form-image-name" placeholder="Image name/description" required/>
     </p>
     <p class="input-p" id="photo_link-p">
-      <input name="photo_link" type="text" class="feedback-input" id="form-image-link" placeholder="Image link" required/>
+      <input name="image_link" type="text" class="feedback-input" id="form-image-link" placeholder="Image link" required/>
+    </p>
+		<p class="input-p" id="photo_description-p">
+      <input name="image_description" type="text" class="feedback-input" id="form-image-description" placeholder="Image Description, keep below 150 characters" required/>
     </p>
     <div class="submit-div">
       <input type="submit" value="Submit" id="submit-button"/>
     </div>
   </form>
+  
+  <div class="preview-div">
+    <button id="preview-button">Image preview</button>>
+  </div>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
+	<p id="logout-p">
+		<a id="edit-a" href="/private/edit" style="color:white">Edit Photos</a>
+    <a id="logout-a" href="/private/logout" style="color:white">Logout</a>
+	</p>
+
+  <!-- The Image preview Modal -->
+  <div id="image-modal" class="image-modal">
     <!-- Modal content -->
+    <div id="image-close" class="close">&times;</div>
+    <div id="image-content" class="image-content">
+      <img id="image-preview" border="0" />
+    </div>
+
+  </div>
+
+  <!-- The ajax Modal -->
+  <div id="myModal" class="modal">
+    <!-- ajax Modal content -->
     <div class="modal-content">
       <i class="fa fa-envelope faa-passing animated sending-mail-icon" id="sending-icon"></i>
       <p class="modal-text" id="sending-message">Uploading info...</p>
       <i class="fa fa-thumbs-up faa-pulse animated" id="success-icon"></i>
-      <p class="modal-text" id="success-message">Upload OK!</p>
+      <p class="modal-text" id="success-message">Upload Done!</p>
       <i class="fa fa-exclamation-triangle faa-flash animated" id="error-icon"></i>
       <p class="modal-text" id="error-message"></p>
     </div>
   </div>
 
+  <script type="text/javascript" src="admin.js">
+  </script>
 </body>
 
 </html>

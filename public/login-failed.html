@@ -5,12 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Admin login page for jessmade">
-  <meta name="copyright" content="Jessica Chiu">
-  <link href="data:;base64,iVBORw0KGgo=" rel="icon">
-  <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
-  <meta name="dcterms.rightsHolder" content="Jessica Chiu">
-  <meta name="dcterms.dateCopyrighted" content="2017">
+  <meta name="description" content="login failed">
   <META NAME="robots" CONTENT="noindex, nofollow">
   <title>Admin login</title>
   <!-- Custom CSS -->
@@ -18,12 +13,17 @@
 
 <body>
   <h1>Incorrect username and/or password</h1>
-  <h2>Redirecting in 5 seconds...</h2>
+  <h2 id="message">Redirecting in 5 seconds...</h2>
   <script>
-    setTimeout(function() {
-      console.log('redirecting')
-      window.location.href = 'login.html';
-    }, 5000);
+    let count = 5
+    let timerId = window.setInterval(function() {
+      count--;
+      document.getElementById('message').innerHTML = 'Redirecting in ' + count + ' seconds...';
+      if (count === 0) {
+        clearInterval(timerId);
+        window.location.href = 'login.html'
+      }
+    }, 1000);
   </script>
 </body>
 

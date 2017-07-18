@@ -1,9 +1,12 @@
 body {
+  padding-top:60px;
   background-color: black;
+
 }
 h1 {
   color: white;
 }
+
 .feedback-input {
 	color:#3c3c3c;
 	font-family: 'FontAwesome', 'Dancing Script', Helvetica, Arial, sans-serif;
@@ -43,13 +46,17 @@ textarea {
   line-height: 150%;
   resize: none;
 }
-.submit-div{
+.submit-div, .preview-div{
   text-align:center;
 }
-#submit-button{
+
+.preview-div{
+  margin-top: 20px;
+}
+
+#submit-button, #preview-button{
   text-align:center;
 	font-family: 'Dancing Script', Arial, Helvetica, sans-serif;
-	width: 50%;
 	border: white solid 4px;
   border-radius: 20px;
 	cursor:pointer;
@@ -61,11 +68,12 @@ textarea {
   outline: none;
 }
 
-#submit-button:hover{
+#submit-button:hover, #preview-button:hover{
 	background-color: #96c65b;
 	color:white;
 }
 
+/*modal for ajax response messages*/
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -75,7 +83,6 @@ textarea {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
 
@@ -122,4 +129,75 @@ textarea {
 #error-message{
   display:none;
   color:#ff4c4c;
+}
+/* end of ajax modal response messages*/
+
+#logout-p {
+  margin-top:50px;
+  text-align:center;
+}
+
+#logout-p > a {
+  font-size: 30px;
+}
+
+#logout-a {
+  padding-left: 20px;
+}
+
+#image-preview{
+  max-width: 500px;
+  max-height: 500px;
+}
+
+#image-content {
+  text-align: center;
+}
+
+#image-modal{
+  padding-top:30px;
+}
+
+/* The image previewModal (background) */
+.image-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,1); /* Black w/ opacity */
+}
+
+/* image Modal Content */
+.image-content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background-color: none;
+    margin: auto;
+    width: 80%;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+/* The Close Button for image preview*/
+.close {
+    color: grey;
+    margin-left:90%;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }

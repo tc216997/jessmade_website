@@ -1,0 +1,185 @@
+table {
+  margin-top:5%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+th, td{
+  border: 1px solid black;
+}
+.col-id {
+  width:5%;
+}
+.col-imagename {
+  width:10%;
+}
+.col-anchor {
+  width:10%;
+}
+td {
+  text-align:center;
+  overflow:hidden;
+  word-wrap: break-word;
+}
+
+a{ 
+  color: blue;
+}
+
+.editBtn, .deleteBtn {
+  width:100%;
+  height:90%;
+  font-size: 2em;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 5%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,1); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 90%;
+    height:90%;
+    overflow-y: auto;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    margin-top:10px;
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+    text-align:center;
+}
+.input-label{
+  font-size:20px;
+  margin-bottom:5px;
+  font-weight:900;
+}
+.input-p {
+  text-align:center;
+}
+.text-input{
+  margin-top:10px;
+  width:50%;
+  font-family:arial;
+  font-size:14px;
+}
+input[type=text] {
+  text-align: center;
+}
+#image-preview{
+  max-height: 200px;
+  max-width:200px;
+}
+#input-description {
+  height: 150px;
+}
+#imageID {
+  display:none;
+}
+/*modal for ajax response messages*/
+#ajaxModal {
+  z-index: 9999;
+}
+.ajaxModal-content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background-color: none;
+    margin: auto;
+    width: 300px;
+    text-align:center;
+    font-size:30px;
+}
+
+.ajaxModal-text {
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  margin-top:20px;
+  font-weight:bold;
+  font-size:30px;
+}
+
+.pending {
+  display:none;
+  color:#00ffff;
+}
+.success {
+  display:none;
+  color:#19ff19;
+}
+.error {
+  display:none;
+  color:#ff4c4c;
+}
+.delete {
+  display:none;
+  color:#FFCC00;
+}
+#deleteYes, #deleteNo {
+  font-size: 40px;
+  background-color:transparent;
+  border-radius: 10px;
+  width:100px;
+}
+#deleteYes {
+  color:#ff4c4c;
+  margin-right:25px;
+}
+#deleteNo {
+  color:#19ff19;
+  margin-left:25px;
+}
+#deleteYes:hover, #deleteNo:hover {
+  background-color:#FFCC00;
+}
+
+
+
+/* end of ajax modal response messages*/

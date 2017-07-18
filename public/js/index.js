@@ -3,6 +3,8 @@ $(document).ready(function() {
       $( ".contact-div" ).slideToggle( "slow");
       contactToggle();
   });
+  //$('#contact-btn').click()
+  //autofill();
 });
 
 $(document).ready(function() {
@@ -102,7 +104,7 @@ function serializeJson(array) {
 }
 
 function autofill(){
-  $('#form-name').val('<script>console.log(attack)</script>Terry Chong');
+  $('#form-name').val('<script>console.log("attack")</script>Terry Chong');
   $('#form-number').val('123-456-7799');
   $('#form-email').val('tchong916@gmail.com');
   $('#form-subject').val('Test email');

@@ -1,123 +1,56 @@
 require('dotenv').config();
 const https = require('https'),
       express = require('express'),
+      privateRoutes = require('./routes/privateRoutes.js'),
+      sendEmail = require('./routes/sendEmailRoutes.js'),
       path = require('path'),
-      nodemailer = require('nodemailer'),
-      bodyParser = require('body-parser'),
       compression = require('compression'),
-      sanitizer = require('express-sanitizer'),
-      RateLimit = require('express-rate-limit'),
-      passport = require('passport'),
-      LocalStrategy = require('passport-local').Strategy,
-      aes256 = require('aes256'),
-      bcrypt = require('bcryptjs'),
-      app = express(),
-      emailLimiter = new RateLimit({
-        windowMs: 5*60*1000,
-        max: 3,
-        delay: 0,
-        handler: function(req, res) {
-          res.format({
-            json:function(){
-              res.status(429).json({status:'Email limit exceeded.<br> Please try again later.'});
-            }
-          })
-        }
-      });
+      bodyParser = require('body-parser'),
+      methodOverride = require('method-override'), 
+      helmet = require('helmet'),     
+      sqlite3 = require('sqlite3').verbose(),
+      db = new sqlite3.Database('./models/photos.db'),
+      app = express();
 
 app.enable('trust proxy');
 app.set('port', process.env.PORT || 3000 );
+app.use(helmet());
 app.use(compression());
-app.use(sanitizer());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(path.resolve(__dirname, 'public')));
-app.use('/private', express.static(path.resolve(__dirname, 'private')));
-app.use('/send-email', emailLimiter);
+app.use(methodOverride("_method"));
+app.use(express.static(__dirname + '/public'));
+app.use('/private', privateRoutes);
+app.use(sendEmail);
 
-let transport = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user:process.env.EMAILUSER,
-    pass:decryptHash(process.env.EMAILPW)
-  }
-});
-
-app.get(/^\/(index)?$/, (req, res) => {
-  res.sendFile(getFile('index'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.get('/login', (req, res) => {
-  res.sendFile(getFile('login'));
+  res.sendFile(path.join(__dirname, 'public/login.html'));
 });
 
-app.post('/send-email', (req, res) => {
-  let clientName = req.sanitize(req.body.name);
-  let clientNumber = req.sanitize(req.body.number);
-  let clientEmail= req.sanitize(req.body.email);
-  let clientSubject = req.sanitize(req.body.subject);
-  let clientMessage = req.sanitize(req.body.message);
-  sendMail(clientName, clientNumber, clientEmail, clientSubject, clientMessage, res);
+app.get('/login-failed', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/login-failed.html'));
 });
 
-app.post('/private/admin-login', (req, res) => {
-  let username = req.sanitize(req.body.username);
-  let password = req.sanitize(req.body.password);
-  if (username === process.env.CLIENTUSER) {
-    bcrypt.compare(password, process.env.CLIENTPW, (err, auth) => {
-      if (auth) {
-        let privatePath = path.resolve(__dirname, 'private');
-        let privateFile = path.resolve(privatePath,  'admin-page.html');
-        res.sendFile(privateFile);            
-      } else {
-        res.sendFile(getFile('login-failed'));
-      }
-    })
-  } else {
-    res.sendFile(getFile('login-failed'));
-  }
+app.get('/works', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/works.html'));
+})
+
+app.get('/works-images', (req, res) => {
+  // prep db rows into json object and send the request
+  db.all("SELECT * from images", (err, arr) => {
+    res.json({images:arr});
+  });
 });
 
-app.post('/private/upload', (req, res) => {
-  console.log(req.sanitize(req.body.photo_name));
-  console.log(req.sanitize(req.body.photo_link));
-  res.status(200).json({status:'upload ok!', error:null});
+// redirect all non matching routes back to homepage
+app.all('*', (req, res) => {
+  res.redirect('/');
 });
 
 app.listen(app.get('port'), () => {
   console.log('server listening at port ' + app.get('port'));
 });
 
-//get and return file path
-function getFile(pathname) {
-  let publicPath = path.resolve(__dirname, 'public');
-  let filePath = path.resolve(publicPath, pathname +'.html');
-  return filePath;
-}
-
-//send email function
-function sendMail(name, number, email, subject, message, res) {
-  let mailSettings = {
-    to: process.env.FORWARDEMAIL,
-    subject: subject,
-    html: '<strong>Customer name: </strong>  ' + name + '<br><br><strong>Customer email address:  </strong>' + email  + '<br><br><strong>Phone number: </strong>' + number + 
-    '<br><br><strong>Message:  </strong><br>' + message,
-  }
-  transport.sendMail(mailSettings, (err, info) => {
-    if (err) {
-      console.log(err);
-      res.status(500).json({status:'Error sending email.<br> Please try again', error:err});
-    } else {
-      console.log('email %s sent: %s', info.messageId, info.response);
-      res.status(200).json({status:'Email was sent!', error:null}); 
-    }
-  });
-}
-
-function decryptHash(hash) {
-  let salt = new RegExp(process.env.SALT, 'g'),
-      pepper = new RegExp(process.env.PEPPER, 'g'),
-      decrypted = aes256.decrypt(process.env.KEY, hash),
-      unsalted = decrypted.replace(salt, ''),
-      unpeppered = unsalted.replace(pepper, '');
-  return unpeppered;
-}
